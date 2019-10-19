@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Your awesome title</title>
-  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-">
+  <title>利用Jekyll在Github上搭建个人主页</title>
+  <meta name="description" content="Jekyll是一个用于创建静态网站的工具，用户编写的markdown文件转换成精美的Html文件。什么是静态网站呢？所谓静态网站是指所有的网站内容都是由Html文件组成，不会使用ASP/Javascript/PHP等语言，也不使用数据库。">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://yourdomain.com/">
+  <link rel="canonical" href="http://yourdomain.com/jekyll/github/2019/10/18/start-with-jekyll.html">
   <link rel="alternate" type="application/rss+xml" title="Your awesome title" href="http://yourdomain.com/feed.xml">
 </head>
 
@@ -55,33 +54,55 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">利用Jekyll在Github上搭建个人主页</h1>
+    <p class="post-meta"><time datetime="2019-10-18T23:09:00+08:00" itemprop="datePublished">Oct 18, 2019</time></p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Oct 18, 2019</span>
+  <div class="post-content" itemprop="articleBody">
+    <p>Jekyll是一个用于创建<code class="highlighter-rouge">静态网站</code>的工具，用户编写的<code class="highlighter-rouge">markdown</code>文件转换成精美的Html文件。什么是静态网站呢？所谓静态网站是指所有的网站内容都是由Html文件组成，不会使用ASP/Javascript/PHP等语言，也不使用数据库。</p>
 
-        <h2>
-          <a class="post-link" href="/jekyll/github/2019/10/18/start-with-jekyll.html">利用Jekyll在Github上搭建个人主页</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Oct 18, 2019</span>
+<p><code class="highlighter-rouge">Github Page</code>是Github为每个账号提供的个人博客服务，支持静态网站。</p>
 
-        <h2>
-          <a class="post-link" href="/jekyll/update/2019/10/18/welcome-to-jekyll.html">Welcome to Jekyll!</a>
-        </h2>
-      </li>
-    
-  </ul>
+<hr />
 
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+<h1 id="1-jekyll安装">1. Jekyll安装</h1>
 
-</div>
+<p>本文的安装环境是<code class="highlighter-rouge">Ubuntu 18.04.3 LTS</code>。</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="c">#=&gt; 安装 Jekyll</span>
+<span class="nb">sudo </span>apt install jekyll
+<span class="c">#=&gt; 创建一个博客</span>
+<span class="nb">sudo </span>jekyll new &lt;your blog name&gt;</code></pre></figure>
+
+<p>Jekyll已经创建了一个Blog，将<code class="highlighter-rouge">_post</code>文件夹下的markdown文件改名为md文件。</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="c">#=&gt; 编译</span>
+jekyll build
+<span class="c">#=&gt; 在本地运行Blog</span>
+jekyll server</code></pre></figure>
+
+<p>打开浏览器，访问<code class="highlighter-rouge">127.0.0.1：4000</code>访问Blog。</p>
+
+<h1 id="2-github-page设置">2. Github Page设置</h1>
+
+<p>注册Github账号，启用Github Page，Github Page是一个特殊的代码仓库，其名字与Github账号名相同，向该仓库中上传网站代码，通过访问<code class="highlighter-rouge">&lt;用户名&gt;.github.io</code>域名即可浏览网站。</p>
+
+<p>在<code class="highlighter-rouge">_site</code>目录下创建本地仓库，并将其推送到Github Page仓库。</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="c">#=&gt; 在本地运行Blog</span>
+git init
+git add <span class="nb">.</span>
+git commit <span class="nt">-m</span> <span class="s2">"First blog"</span>
+git remote add origin &lt;仓库网址&gt;
+git push <span class="nt">-u</span> origin master </code></pre></figure>
+
+
+  </div>
+
+</article>
 
       </div>
     </div>
