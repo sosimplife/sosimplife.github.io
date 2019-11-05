@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Your awesome title</title>
-  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-">
+  <title>Python中的对象</title>
+  <meta name="description" content="在面向对象编程中，“类”和“对象”是非常重要的概念。对象是客观事物的反映，而类是对象的抽象。Python是一门面向对象的语言，在Python中一切都是对象。为了实现面向对象理论中的“类”和“对象”，Python通过构建类型对象来实现“类”的概念；通过类型对象的实例对象构建“对象”的概念。">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://yourdomain.com/">
+  <link rel="canonical" href="http://yourdomain.com/python/object/2019/11/02/object-in-python.html">
   <link rel="alternate" type="application/rss+xml" title="Your awesome title" href="http://yourdomain.com/feed.xml">
 </head>
 
@@ -55,41 +54,41 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Python中的对象</h1>
+    <p class="post-meta"><time datetime="2019-11-02T22:20:00+08:00" itemprop="datePublished">Nov 2, 2019</time></p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Nov 2, 2019</span>
+  <div class="post-content" itemprop="articleBody">
+    <p>在面向对象编程中，“类”和“对象”是非常重要的概念。对象是客观事物的反映，而类是对象的抽象。Python是一门面向对象的语言，在Python中一切都是对象。为了实现面向对象理论中的“类”和“对象”，Python通过构建<code class="highlighter-rouge">类型对象</code>来实现“类”的概念；通过类型对象的实例对象构建“对象”的概念。</p>
 
-        <h2>
-          <a class="post-link" href="/python/object/2019/11/02/object-in-python.html">Python中的对象</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Oct 18, 2019</span>
+<h1 id="1-类型对象">1. 类型对象</h1>
+<p>Python首先定义了<code class="highlighter-rouge">PyObjectType</code>数据类型，作为抽象<code class="highlighter-rouge">类型对象</code>的“类”。</p>
 
-        <h2>
-          <a class="post-link" href="/jekyll/github/2019/10/18/start-with-jekyll.html">利用Jekyll在Github上搭建个人主页</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Oct 18, 2019</span>
+<p>接着，以<code class="highlighter-rouge">PyObjectType</code>定义变量<code class="highlighter-rouge">PyType_Type</code>, <code class="highlighter-rouge">PyType_Type</code>是所有类型对象的基础。</p>
 
-        <h2>
-          <a class="post-link" href="/jekyll/update/2019/10/18/welcome-to-jekyll.html">Welcome to Jekyll!</a>
-        </h2>
-      </li>
-    
-  </ul>
+<p>以Int对象为例，以<code class="highlighter-rouge">PyObjectType</code>定义变量<code class="highlighter-rouge">PyInt_Type</code>, 用以描述Int类型，而该变量又通过指针关联了变量<code class="highlighter-rouge">PyType_Type</code>，面向对象概念中的“基类”便是由此实现的。</p>
 
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+<p><img src="./pic/2019_11_02_object_in_python_1.png" alt="类型对象关系图" /></p>
 
-</div>
+<h1 id="2-pyobject">2. PyObject</h1>
+<p>Python中定义的所有对象包含一些相同的内容，这些内容通过<code class="highlighter-rouge">PyObject</code>来定义，而<code class="highlighter-rouge">PyObject</code>中由宏定义PyObject_HEAD组成。所有Python定义的数据类型的开始都是由该对象组成。</p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#define PyObject_HEAD			\
+	_PyObject_HEAD_EXTRA		\
+	Py_ssize_t ob_refcnt;		\
+	struct _typeobject *ob_type;
+</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">_object</span> <span class="p">{</span>
+    <span class="n">PyObject_HEAD</span>
+<span class="p">}</span></code></pre></figure>
+
+
+  </div>
+
+</article>
 
       </div>
     </div>
