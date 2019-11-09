@@ -71,7 +71,7 @@
 
 <p>以Int对象为例，以<code class="highlighter-rouge">PyObjectType</code>定义变量<code class="highlighter-rouge">PyInt_Type</code>, 用以描述Int类型，而该变量又通过指针关联了变量<code class="highlighter-rouge">PyType_Type</code>，面向对象概念中的“基类”便是由此实现的。</p>
 
-<p><img src="./pic/2019_11_02_object_in_python_1.png" alt="类型对象关系图" /></p>
+<p><img src="/pic/2019_11_02_object_in_python_1.png" alt="类型对象关系图" /></p>
 
 <h1 id="2-pyobject">2. PyObject</h1>
 <p>Python中定义的所有对象包含一些相同的内容，这些内容通过<code class="highlighter-rouge">PyObject</code>来定义，而<code class="highlighter-rouge">PyObject</code>中由宏定义PyObject_HEAD组成。所有Python定义的数据类型的开始都是由该对象组成。</p>

@@ -6,8 +6,8 @@
 </description>
     <link>http://yourdomain.com/</link>
     <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 09 Nov 2019 08:05:20 +0800</pubDate>
-    <lastBuildDate>Sat, 09 Nov 2019 08:05:20 +0800</lastBuildDate>
+    <pubDate>Sat, 09 Nov 2019 08:10:09 +0800</pubDate>
+    <lastBuildDate>Sat, 09 Nov 2019 08:10:09 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -21,7 +21,7 @@
 
 &lt;p&gt;以Int对象为例，以&lt;code class=&quot;highlighter-rouge&quot;&gt;PyObjectType&lt;/code&gt;定义变量&lt;code class=&quot;highlighter-rouge&quot;&gt;PyInt_Type&lt;/code&gt;, 用以描述Int类型，而该变量又通过指针关联了变量&lt;code class=&quot;highlighter-rouge&quot;&gt;PyType_Type&lt;/code&gt;，面向对象概念中的“基类”便是由此实现的。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;./pic/2019_11_02_object_in_python_1.png&quot; alt=&quot;类型对象关系图&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/pic/2019_11_02_object_in_python_1.png&quot; alt=&quot;类型对象关系图&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;2-pyobject&quot;&gt;2. PyObject&lt;/h1&gt;
 &lt;p&gt;Python中定义的所有对象包含一些相同的内容，这些内容通过&lt;code class=&quot;highlighter-rouge&quot;&gt;PyObject&lt;/code&gt;来定义，而&lt;code class=&quot;highlighter-rouge&quot;&gt;PyObject&lt;/code&gt;中由宏定义PyObject_HEAD组成。所有Python定义的数据类型的开始都是由该对象组成。&lt;/p&gt;
